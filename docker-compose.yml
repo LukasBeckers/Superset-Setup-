@@ -21,6 +21,6 @@ services:
         POSTGRES_DB: superset_db
         POSTGRES_PASSWORD: example
       volumes:
-        - "/mnt/Lukas/superset/pgdata:/var/lib/postgresql/data"
+        - "./superset/pgdata:/var/lib/postgresql/data"
       ports:
         - '5432:5432'
