@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+/usr/local/bin/docker-entrypoint.sh postgres &
+
+until psql -U postgres -c '\l'; do
+	echo "PostgeSQL is starting ..."
+	sleep 1
+done
+
 psql -v ON_ERROR_STOP=1 --username "postgres" <<-EOSQL
     CREATE DATABASE superset_db;
     CREATE USER superset_user WITH ENCRYPTED PASSWORD 'example';
@@ -15,23 +22,4 @@ psql -v ON_ERROR_STOP=1 --username "postgres" <<-EOSQL
 EOSQL
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+wait
