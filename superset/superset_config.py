@@ -1,0 +1,8 @@
+FEATURE_FLAGS = {
+        "ENABLE_TEMPLATE_PROCESSING": True,
+        "ALLOW_CSV_UPLOAD": True
+        }
+
+ENABLE_PROXY_FIX = True
+SECRET_KEY = "NOT_NEEDED"
+

@@ -1,0 +1,6 @@
+FROM postgres:latest
+
+COPY ./setup_db.sh /setup_db.sh 
+RUN chmod +x /setup_db.sh
+
+ENTRYPOINT ["/setup_db.sh"]
